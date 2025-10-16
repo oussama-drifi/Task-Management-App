@@ -1,33 +1,21 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [selected, setSelected] = useState("");
+
+  
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="payment-methods">
+        choose your payment gateway
+        <ul>
+          <li onClick = {() => setSelected(prev => "apple")} className={selected === "apple" ? "selected" : undefined} key="apple"><i className="bi bi-apple"></i> Apple Pay</li>
+          <li onClick = {() => setSelected(prev => "google")} className={selected === "google" ? "selected" : undefined} key="google"><i className="bi bi-google"></i> Google Pay</li>
+          <li onClick = {() => setSelected(prev => "credit")} className={selected === "credit" ? "selected" : undefined} key="credit-card"><i className="bi bi-credit-card"></i> Credit Card</li>
+        </ul>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Emy name is oussama drifi
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
