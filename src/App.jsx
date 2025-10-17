@@ -1,19 +1,30 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
-function App() {
-  const [selected, setSelected] = useState("");
+// const setTheme = (newTheme) => {
+//   window.localStorage.setItem("theme", new)
+// }
 
+
+function App() {
+  const [isLiked , setLiked] = useState(false);
+  const [likesCount, setLikesCount] = useState(375);
+
+  const handleClick = () => {
+    setLiked(prev => {
+      if (!prev) {
+        setLikesCount(prev => prev + 1)
+      } else {
+        setLikesCount(prev => prev - 1)
+      }
+      return !prev
+    })
+  }
 
   return (
     <>
-      <div className="payment-methods">
-        choose your payment gateway
-        <ul>
-          <li onClick = {() => setSelected(prev => "apple")} className={selected === "apple" ? "selected" : undefined} key="apple"><i className="bi bi-apple"></i> Apple Pay</li>
-          <li onClick = {() => setSelected(prev => "google")} className={selected === "google" ? "selected" : undefined} key="google"><i className="bi bi-google"></i> Google Pay</li>
-          <li onClick = {() => setSelected(prev => "credit")} className={selected === "credit" ? "selected" : undefined} key="credit-card"><i className="bi bi-credit-card"></i> Credit Card</li>
-        </ul>
+      <div className="container">
+        <span onClick={handleClick}><i className={isLiked ? "bi bi-heart-fill" : "bi bi-heart"}></i> {likesCount}</span>
       </div>
     </>
   )

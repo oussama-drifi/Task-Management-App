@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -11,44 +11,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: white;
-}
-
-
+} */
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: poppins, sans-serif;
-}
-
-.payment-methods {
-  ul {
-    display: flex;
-    list-style-type: none;
-    flex-direction: column;
-    gap: 10px;
-    li {
-      padding: 10px;
-      border-radius: 7px;
-      /* background-color: #f4f4f4; */
-      cursor: pointer;
-      border: 1.5px solid #eee;
-      transition-duration: 0.3s;
-      color: #444;
-    }
-    li.selected {
-      background-color: rgba(237, 219, 255, 0.546);
-      border-color: rgb(87, 3, 255);
-      color: rgb(85, 0, 255);
-    }
-  }
 }
