@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <h1>your repos</h1>
-      <h2></h2>
+      <h2>scroll to show more</h2>
       <div className="container">
           <span className={myRepos.length !== 0 ? "d-none" : undefined}>loading...</span>
           {myRepos && (<ul>
