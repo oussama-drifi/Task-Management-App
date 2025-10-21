@@ -86,34 +86,3 @@ h1{
     left: 120%;
   }
 }
-
-.clock {
-  margin: 30px 100px;
-  display: flex;
-  gap: 10px;
-  > div {
-    padding: 10px;
-    border-radius: 7px;
-    color: #444;
-    font-weight: 600;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-
-    > .timer {
-      font-size: 2rem;
-      display: flex;
-      gap: 3px;
-
-      > span {
-        background-color: red;
-        padding: 4px;
-        border-radius: 6px;
-        background-color: #eee;
-        width: 30px;
-      }
-    }
-  }
-}
