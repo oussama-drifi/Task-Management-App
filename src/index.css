@@ -17,48 +17,47 @@ h1{
   text-align: start;
   margin-bottom: 10px;
 }
+
+
 .container {
   display: flex;
   gap: 10px;
   flex-direction: column;
+
+
   > .done-loading {
     display: none !important;
   }
+
+
   > .skeleton {
     width: 250px;
     height: 50px;
     border-radius: 7px;
     background-color: #f1eef3;
     display: flex;
-    flex-direction: column;
     align-items: start;
     gap: 5px;
     justify-content: center;
     padding: 10px;
-    > span:first-child {
-      width: 70%;
-      height: 10px;
-    }
-    > span:last-child {
-      width: 50%;
-      height: 6px;
-    }
-    > span {
-      display: inline-block;
+
+    > .profile-image {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
       background-color: #d7d0dc;
-      border-radius: 90px;
       position: relative;
       overflow: hidden;
 
       &::before {
         content: "";
         position: absolute;
-        width: 30%;
+        width: 5%;
         height: 100%;
         background-color: rgb(110, 110, 110);
         left: 0;
         top: 0;
-        filter: blur(20px);
+        filter: blur(10px);
         transform: skew(10%);
         /* animation */
         animation-name: loading;
@@ -67,17 +66,94 @@ h1{
         animation-timing-function: linear;
       }
     }
+
+
+
+    > .content {
+      height: 100%;
+      width: calc(100% - 40px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      > span {
+        display: inline-block;
+        background-color: #d7d0dc;
+        border-radius: 90px;
+        position: relative;
+        overflow: hidden;
+  
+        &::before {
+          content: "";
+          position: absolute;
+          width: 30%;
+          height: 100%;
+          background-color: rgb(110, 110, 110);
+          left: 0;
+          top: 0;
+          filter: blur(20px);
+          transform: skew(10%);
+          /* animation */
+          animation-name: loading;
+          animation-duration: 1s;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+        }
+      }
+
+      > span:first-child {
+        width: 70%;
+        height: 10px;
+      }
+
+      > span:last-child {
+        width: 50%;
+        height: 6px;
+      }
+    }
   }
-  > .repo {
-    width: 250px;
-    height: 50px;
-    border-radius: 7px;
-    background-color: #f1eef3;
+  > .contact {
+      width: 250px;
+      height: 50px;
+      padding: 10px;
+      background-color: #f1eef3;
+      border-radius: 7px;
+      display: flex;
+      .profile-image {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .content {
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 5px;
+        > .name {
+          font-size: 14px;
+          font-weight: 600;
+          color: #333;
+          text-align: start;
+          line-height: 0.96;
+        }
+        > .last-message {
+          font-size: 10px;
+          color: #666;
+          text-align: start;
+        }
+      }
+    /* 
     display: flex;
     align-items: center;
     padding: 10px;
     color: #444;
-    font-weight: 600;
+    font-weight: 600; */
   }
 }
 
