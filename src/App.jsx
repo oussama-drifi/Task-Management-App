@@ -28,7 +28,7 @@ function App() {
     },
     {
       image: "avatar5.png",
-      name: "john mahone",
+      name: "darlyne roze",
       lastMsg: "i'm off duty today"
     },
     {
