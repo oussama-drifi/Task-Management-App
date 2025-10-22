@@ -72,27 +72,21 @@ function App() {
             </div>
           </div>
           <div className={`skeleton ${isContentLoaded ? "done-loading" : "" }`}>
-            <div className="profile-image">
-              
-            </div>
+            <div className="profile-image"></div>
             <div className="content">
               <span></span>
               <span></span>
             </div>
           </div>
           <div className={`skeleton ${isContentLoaded ? "done-loading" : "" }`}>
-            <div className="profile-image">
-              
-            </div>
+            <div className="profile-image"></div>
             <div className="content">
               <span></span>
               <span></span>
             </div>
           </div>
           <div className={`skeleton ${isContentLoaded ? "done-loading" : "" }`}>
-            <div className="profile-image">
-              
-            </div>
+            <div className="profile-image"></div>
             <div className="content">
               <span></span>
               <span></span>
