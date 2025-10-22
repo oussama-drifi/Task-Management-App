@@ -35,7 +35,7 @@ function App() {
       image: "avatar3.png",
       name: "rick grimes",
       lastMsg: "are u in today?"
-    },
+    }
   ];
   const [contacts, setContacts] = useState([]);
   const [isContentLoaded, setContentLoaded] = useState(false);
