@@ -61,17 +61,17 @@ function App() {
           {/* show contacts once they are loaded */}
           {
             isContentLoaded && (
-                contacts.map(contact => (
-                  <div key={contact.name} className="contact">
-                    <div className="profile-image">
-                      <img src={new URL(`../public/images/${contact.image}`, import.meta.url).href} alt="not found" />
-                    </div>
-                    <div className="content">
-                      <span className='name'>{contact.name}</span>
-                      <span className='last-message'>{contact.lastMsg}</span>
-                    </div>
+              contacts.map(contact => (
+                <div key={contact.name} className="contact">
+                  <div className="profile-image">
+                    <img src={new URL(`../public/images/${contact.image}`, import.meta.url).href} alt="not found" />
                   </div>
-                ))
+                  <div className="content">
+                    <span className='name'>{contact.name}</span>
+                    <span className='last-message'>{contact.lastMsg}</span>
+                  </div>
+                </div>
+              ))
             )
           }
       </div>
