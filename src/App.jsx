@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import './App.css'
-import ContactSkeleton from './components/contactSkeleton';
 
-function App() {
 
+// import ContactSkeleton from './components/contactSkeleton';
+function Contacts() {
   const myContacts = [
     {
       image: "avatar1.png",
@@ -76,6 +76,22 @@ function App() {
           }
       </div>
     </>
+  )
+}
+
+function App() {
+
+  const myInput = useRef(null);
+
+  useEffect(() => {
+    setTimeout(myInput.current.focus, 1000)
+  }, []);
+
+
+  return (
+    <div className="wrapper">
+      <input ref={myInput} type="text" name='username' placeholder='username' id='username'/>
+    </div>
   )
 }
 
