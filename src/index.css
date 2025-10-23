@@ -66,17 +66,5 @@ h1{
           text-align: start;
         }
       }
-    /* 
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    color: #444;
-    font-weight: 600; */
-  }
-}
-
-@keyframes loading {
-  100% {
-    left: 120%;
   }
 }

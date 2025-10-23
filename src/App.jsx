@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './App.css'
-
-
+import ContactSkeleton from './components/contactSkeleton';
 
 function App() {
 
@@ -37,6 +36,7 @@ function App() {
       lastMsg: "are u in today?"
     }
   ];
+
   const [contacts, setContacts] = useState([]);
   const [isContentLoaded, setContentLoaded] = useState(false);
 
@@ -50,48 +50,15 @@ function App() {
     <>
       <h1>Contacts</h1>
       <div className="container">
-          <div className={`skeleton ${isContentLoaded ? "done-loading" : "" }`}>
-            <div className="profile-image"></div>
-            <div className="content">
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-          <div className={`skeleton ${isContentLoaded ? "done-loading" : "" }`}>
-            <div className="profile-image"></div>
-            <div className="content">
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-          <div className={`skeleton ${isContentLoaded ? "done-loading" : "" }`}>
-            <div className="profile-image"></div>
-            <div className="content">
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-          <div className={`skeleton ${isContentLoaded ? "done-loading" : "" }`}>
-            <div className="profile-image"></div>
-            <div className="content">
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-          <div className={`skeleton ${isContentLoaded ? "done-loading" : "" }`}>
-            <div className="profile-image"></div>
-            <div className="content">
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-          <div className={`skeleton ${isContentLoaded ? "done-loading" : "" }`}>
-            <div className="profile-image"></div>
-            <div className="content">
-              <span></span>
-              <span></span>
-            </div>
-          </div>
+          {/* show skeleton */}
+          <ContactSkeleton isContentLoaded={isContentLoaded}/>
+          <ContactSkeleton isContentLoaded={isContentLoaded}/>
+          <ContactSkeleton isContentLoaded={isContentLoaded}/>
+          <ContactSkeleton isContentLoaded={isContentLoaded}/>
+          <ContactSkeleton isContentLoaded={isContentLoaded}/>
+          <ContactSkeleton isContentLoaded={isContentLoaded}/>
+
+          {/* show contacts once they are loaded */}
           {
             isContentLoaded && (
                 contacts.map(contact => (

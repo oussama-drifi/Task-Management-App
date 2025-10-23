@@ -1,3 +1,5 @@
+import './contactSkeleton.css';
+
 const ContactSkeleton = ({isContentLoaded}) => {
     return (
         <div className={`skeleton ${isContentLoaded ? "done-loading" : "" }`}>
