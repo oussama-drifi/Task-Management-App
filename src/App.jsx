@@ -81,23 +81,11 @@ function Contacts() {
 
 function App() {
 
-  const [prev, setPrev] = useState("thailand");
-  const [current, setCurrent] = useState("mexico");
-
-  const myInput = useRef(null);
-
-  const handleClick = () => {
-    setPrev(current);
-    setCurrent(myInput.current.value);
-    myInput.current.value = ""
-  }
+  
 
   return (
     <div className="wrapper">
-      <div>prev: <b>{prev}</b></div>
-      <div>current: <b>{current}</b></div>
-      <input ref={myInput} type="text" name='username' placeholder='set new value to current' id='username'/>
-      <button onClick={handleClick}>set</button>
+      
     </div>
   )
 }
