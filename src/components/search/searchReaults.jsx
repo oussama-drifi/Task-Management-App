@@ -1,7 +1,7 @@
+import './searchResults.css'
 
-
-const SearchResult = () => {
+const SearchResults = () => {
 
 }
 
-export default SearchResult
+export default SearchResults
