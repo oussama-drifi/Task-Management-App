@@ -80,7 +80,7 @@ function Contacts() {
 }
 
 
-
+import Search from './components/search/search';
 
 function App() {
 
@@ -88,7 +88,7 @@ function App() {
 
   return (
     <div className="wrapper">
-      
+        <Search />
     </div>
   )
 }
