@@ -4,29 +4,40 @@ import './searchBar.css'
 const SearchBar = () => {
 
     const [searchQuery, setSearchQuery] = useState("");
-    const [isQuerySet, setIsQuerySet] = useState(false);
 
     const handleChange = (e) => {
         const query = e.target.value;
         setSearchQuery(query);
+        // more logic coming here...
     }
 
-    useEffect(() => {
-        if (searchQuery !== "") {
-            setIsQuerySet(prev => true);
-        }
-    }, [searchQuery]);
-
-
-    const handleClear = () => {
-        setSearchQuery("");
+    const labelStyles = {
+        position: "absolute",
+        width: "1px",
+        height: "1px",
+        padding: "0",
+        margin: "-1px",
+        overflow: "hidden",
+        clip: "rect(0, 0, 0, 0)",
+        whiteSpace: "nowrap",
+        borderWidth: "0"
     }
-
+    
     return (
         <div className="search-input">
-            <button><i className="bi bi-search"></i></button>
-            <input onChange={handleChange} value={searchQuery} type="text" placeholder="Search for country..." />
-            <button className={isQuerySet ? "shown" : "hidden"} onClick={handleClear}><i className="bi bi-x-lg"></i></button>
+            <button type='button'><i className="bi bi-search"></i></button>
+            <label htmlFor="search-country" style={labelStyles}></label>
+            <input 
+                id='search-country'
+                type="text" 
+                placeholder="Search for country..." 
+                value={searchQuery} 
+                onChange={handleChange} 
+            />
+            {/* conditionnaly render the clear button */}
+            {
+                searchQuery.length > 0 && (<button type='button' onClick={() => setSearchQuery("")}><i className="bi bi-x-lg"></i></button>)
+            }
         </div>
     )
 }

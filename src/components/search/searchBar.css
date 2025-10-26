@@ -18,34 +18,31 @@
         border: none;
         width: 30px;
         height: 30px;
+        position: absolute;
+        font-size: 16px;
+        border-radius: 3px;
+        cursor: pointer;
+        transition-duration: 0.2s;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #ff0000f0;
-        font-size: 16px;
-        border-radius: 3px;
-        position: absolute;
-        cursor: pointer;
-        transition-duration: 0.3s;
     }
     & button:first-child{
         top: 5px;
         left: 5px;
+        border: 1px solid #eee;
     }
     & button:last-child{
         top: 5px;
         right: 5px;
-        &.shown{
+        background-color: transparent;
+        /* &.shown{
             opacity: 1;
             pointer-events: auto;
         }
         &.hidden{
             opacity: 0;
             pointer-events: none;
-        }
-    }
-
-    & button:last-child:hover, button:first-child:hover{
-        background-color: rgb(246, 240, 255);
+        } */
     }
 }
