@@ -2,8 +2,11 @@ import SearchBar from "./searchBar";
 import SearchResults from './searchResults'
 
 const Search = () => {
+    const styles = {
+        position: "relative"
+    }
     return (
-        <main>
+        <main style={styles}>
             <SearchBar />
             <SearchResults />
         </main>

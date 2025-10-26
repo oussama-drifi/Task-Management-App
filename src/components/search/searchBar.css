@@ -36,13 +36,5 @@
         top: 5px;
         right: 5px;
         background-color: transparent;
-        /* &.shown{
-            opacity: 1;
-            pointer-events: auto;
-        }
-        &.hidden{
-            opacity: 0;
-            pointer-events: none;
-        } */
     }
 }
