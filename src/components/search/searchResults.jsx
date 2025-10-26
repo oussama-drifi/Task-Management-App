@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SearchItem from './searchItem';
 import './searchResults.css'
 
 const SearchResults = () => {
