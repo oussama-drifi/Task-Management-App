@@ -6,17 +6,56 @@ const SearchResults = () => {
 
     // const [isLoading, setIsLoading] = useState(false);
 
-    const countries = ["spain", "france", "united states", "canada", "italy", "thailand"];
+    const countries = [
+        {
+            img: "argentina.png",
+            country: "argentina"
+        },
+        {
+            img: "france.png",
+            country: "france"
+        },
+        {
+            img: "canada.png",
+            country: "canada"
+        },
+        {
+            img: "italy.png",
+            country: "italy"
+        },
+        // {
+        //     img: "thailand.png",
+        //     country: "thailand"
+        // },
+        // {
+        //     img: "usa.png",
+        //     country: "united states"
+        // },
+        // {
+        //     img: "germany.png",
+        //     country: "germany"
+        // },
+        // {
+        //     img: "spain.png",
+        //     country: "spain"
+        // },
+        // {
+        //     img: "morocco.png",
+        //     country: "morocco"
+        // },
+        // {
+        //     img: "ukrain.png",
+        //     country: "ukrain"
+        // }
+    ];
     return (
         <div class="options">
             <div class="loader"><i className="bi bi-arrow-repeat"></i></div>
-            <ul id="menu" role="listbox">
+            <div className="results">
                 {
-                    countries.map(country => (
-                        <li key={country}>{country}</li>
-                    ))
+                    countries.map(({img, country}) => <SearchItem imgName={img} name={country}/>)
                 }
-            </ul>
+            </div>
         </div>
     )
 }

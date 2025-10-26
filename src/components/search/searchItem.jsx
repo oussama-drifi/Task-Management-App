@@ -1,10 +1,12 @@
-const SearchItem = ({src, name}) => {
+import './searchItem.css'
+
+const SearchItem = ({imgName, name}) => {
     return (
         <div className="search-item">
             <div className="country-image">
-                <img src={src} alt="not found" />
+                <img src={new URL(`./images/${imgName}`, import.meta.url).href} alt="not found" width="30px"/>
             </div>
-            <div className="countr-name">
+            <div className="country-name">
                 <span>{name}</span>
             </div>
         </div>
