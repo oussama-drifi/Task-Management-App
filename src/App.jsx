@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import './App.css'
 
 
-// import ContactSkeleton from './components/contactSkeleton';
+import ContactSkeleton from './components/contactSkeleton';
 function Contacts() {
   const myContacts = [
     {
@@ -80,14 +80,16 @@ function Contacts() {
   )
 }
 
+
 import Search from './components/search/search';
 
 function App() {
-
   return (
     <Routes>
-      <Route path='/task-management-app' element={<div className="wrapper"><Search /></div>} />
-      <Route path='/task-management-app/about' element={<div><h1>this is about page</h1></div>} />
+        <Route path='/' element={<div className="wrapper"><Contacts /></div>} />
+        <Route path='/about' element={<div><h1>this is about page</h1></div>} />
+        <Route path='/contact' element={<div><h1>this is contact page</h1></div>} />
+        <Route path='/services' element={<div><h1>this is services page</h1></div>} />
     </Routes>
   )
 }
