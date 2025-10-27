@@ -49,11 +49,11 @@ const SearchResults = () => {
         // }
     ];
     return (
-        <div class="options">
-            <div class="loader"><i className="bi bi-arrow-repeat"></i></div>
+        <div className="options">
+            <div className="loader"><i className="bi bi-arrow-repeat"></i></div>
             <div className="results">
                 {
-                    countries.map(({img, country}) => <SearchItem imgName={img} name={country}/>)
+                    countries.map(({img, country}) => <SearchItem key={country} imgName={img} name={country}/>)
                 }
             </div>
         </div>

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 
 
@@ -79,17 +80,15 @@ function Contacts() {
   )
 }
 
-
 import Search from './components/search/search';
 
 function App() {
 
-  
-
   return (
-    <div className="wrapper">
-        <Search />
-    </div>
+    <Routes>
+      <Route path='/task-management-app' element={<div className="wrapper"><Search /></div>} />
+      <Route path='/task-management-app/about' element={<div><h1>this is about page</h1></div>} />
+    </Routes>
   )
 }
 

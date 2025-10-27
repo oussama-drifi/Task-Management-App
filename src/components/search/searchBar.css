@@ -3,7 +3,7 @@
     border: 1px solid #eee;
     border-radius: 7px;
     box-shadow: 1px 1px 40px rgba(51, 0, 90, 0.075);
-    width: 300px; /* to be customized */
+    width: 200px; /* to be customized */
     position: relative;
     overflow: hidden;
     & input{

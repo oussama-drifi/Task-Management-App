@@ -30,7 +30,7 @@ const SearchBar = () => {
             <input 
                 id='search-country'
                 type="text" 
-                placeholder="Search for country..." 
+                placeholder="Search" 
                 value={searchQuery} 
                 onChange={handleChange} 
             />
