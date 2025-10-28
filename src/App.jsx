@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import './App.css'
-
+import '@fontsource/poppins';
+// import '@fontsource/poppins/500.css';
+// import '@fontsource/poppins/700.css';
+// import '@fontsource/poppins/700-italic.css';
 
 import ContactSkeleton from './components/contactSkeleton';
 function Contacts() {
@@ -79,18 +82,25 @@ function Contacts() {
     </>
   )
 }
-
+import NavBar from './components/navBar';
 
 import Search from './components/search/search';
 
 function App() {
   return (
-    <Routes>
-        <Route path='/' element={<div className="wrapper"><Contacts /></div>} />
-        <Route path='/about' element={<div><h1>this is about page</h1></div>} />
-        <Route path='/contact' element={<div><h1>this is contact page</h1></div>} />
-        <Route path='/services' element={<div><h1>this is services page</h1></div>} />
-    </Routes>
+    <div className='wrapper'>
+      <NavBar />
+      <Routes>
+          <Route path='/' element={
+            <div className="wrapper">
+              <h1>home</h1>
+            </div>
+          } />
+          <Route path='/about' element={<div><h1>about page</h1></div>} />
+          <Route path='/contact' element={<div><h1>contact page</h1></div>} />
+          <Route path='/services' element={<div><h1>services page</h1></div>} />
+      </Routes>
+    </div>
   )
 }
 

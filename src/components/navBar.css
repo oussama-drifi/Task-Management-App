@@ -1,0 +1,10 @@
+.nav-link {
+    margin-right: 15px;
+    border-radius: 50px;
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
+.active {
+    background-color: red;
+}
