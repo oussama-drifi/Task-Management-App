@@ -1,8 +1,8 @@
 import './contactSkeleton.css';
 
-const ContactSkeleton = ({isContentLoaded}) => {
+const ContactSkeleton = () => {
     return (
-        <div className={`skeleton ${isContentLoaded ? "done-loading" : "" }`}>
+        <div className="skeleton">
             <div className="profile-image"></div>
             <div className="content">
                 <span></span>

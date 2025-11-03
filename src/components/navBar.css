@@ -1,10 +1,72 @@
-.nav-link {
-    margin-right: 15px;
-    border-radius: 50px;
-    background-color: #f4f4f4;
-    padding: 10px;
+
+nav {
+    border: 1px solid #eee;
+    background-color: rgb(245, 245, 245);
+    padding: 3px;
+    border-radius: 6px;
+    ul {
+        list-style-type: none;
+        display: flex;
+        gap: 7px;
+        li {
+            
+
+            .nav-link{
+                display: inline-block;
+                border-radius: 5px;
+                padding: 5px 10px;
+                color: rgb(27, 27, 27);
+                text-decoration: none;
+                i {
+                    margin-right: 3px;
+                }
+            }
+            .active {
+                background: rgba(255, 255, 255, 0.3);
+                /* background: rgb(242, 0, 0); */
+                backdrop-filter: blur(21px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 
+                    0 8px 32px rgba(0, 0, 0, 0.1),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+                    inset 0 0 46px 23px rgba(255, 255, 255, 2.3);
+                position: relative;
+                /* overflow: hidden; */
+                /* color: aliceblue; */
+            }
+        }
+    }
 }
 
-.active {
-    background-color: red;
+
+
+/* .glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
 }
+
+.glass::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8),
+    transparent,
+    rgba(255, 255, 255, 0.3)
+  );
+} */

@@ -6,10 +6,12 @@ const NavBar = () => {
 
     return (
         <nav>
-            <NavLink className={({isActive}) => `nav-link ${isActive ? "active" : ""}`} to='/'>Home</NavLink>
-            <NavLink className={({isActive}) => `nav-link ${isActive ? "active" : ""}`} to='/about'>about</NavLink>
-            <NavLink className={({isActive}) => `nav-link ${isActive ? "active" : ""}`} to='/services'>services</NavLink>
-            <NavLink className={({isActive}) => `nav-link ${isActive ? "active" : ""}`} to='/contact'>contact</NavLink>
+            <ul>
+                <li><NavLink className={({isActive}) => `nav-link ${isActive ? "active glass" : ""}`} to='/'><i className="bi bi-house"></i>Home</NavLink></li>
+                <li><NavLink className={({isActive}) => `nav-link ${isActive ? "active glass" : ""}`} to='/services'><i className="bi bi-easel2"></i>services</NavLink></li>
+                <li><NavLink className={({isActive}) => `nav-link ${isActive ? "active glass" : ""}`} to='/about'><i className="bi bi-card-text"></i>about</NavLink></li>
+                <li><NavLink className={({isActive}) => `nav-link ${isActive ? "active glass" : ""}`} to='/contact'><i className="bi bi-envelope-at"></i>contact</NavLink></li>
+            </ul>
         </nav>
     )
 

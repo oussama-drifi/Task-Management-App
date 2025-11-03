@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Routes, Route} from 'react-router-dom'
 import './App.css'
 import '@fontsource/poppins';
 // import '@fontsource/poppins/500.css';
@@ -44,28 +44,22 @@ function Contacts() {
   const [contacts, setContacts] = useState([]);
   const [isContentLoaded, setContentLoaded] = useState(false);
 
-  // ======= this is for offline test
   setTimeout(() => {
-    setContacts(prev => myContacts);
-    setContentLoaded(prev => true);
+    setContacts(myContacts);
+    setContentLoaded(true);
   }, 1500);
   
+  useEffect(() => {
+    axios.get
+  }, []);
+
   return (
     <>
       <h1>Contacts</h1>
       <div className="container">
-          {/* show skeleton */}
-          <ContactSkeleton isContentLoaded={isContentLoaded}/>
-          <ContactSkeleton isContentLoaded={isContentLoaded}/>
-          <ContactSkeleton isContentLoaded={isContentLoaded}/>
-          <ContactSkeleton isContentLoaded={isContentLoaded}/>
-          <ContactSkeleton isContentLoaded={isContentLoaded}/>
-          <ContactSkeleton isContentLoaded={isContentLoaded}/>
-
-          {/* show contacts once they are loaded */}
-          {
-            isContentLoaded && (
-              contacts.map(contact => (
+        {
+          isContentLoaded ? (
+            contacts.map(contact => (
                 <div key={contact.name} className="contact">
                   <div className="profile-image">
                     <img src={new URL(`../public/images/${contact.image}`, import.meta.url).href} alt="not found" />
@@ -75,13 +69,27 @@ function Contacts() {
                     <span className='last-message'>{contact.lastMsg}</span>
                   </div>
                 </div>
-              ))
-            )
-          }
+            ))
+          ) : (
+            <>
+              <ContactSkeleton />
+              <ContactSkeleton />
+              <ContactSkeleton />
+              <ContactSkeleton />
+              <ContactSkeleton />
+              <ContactSkeleton />
+            </>
+          )
+        }
       </div>
     </>
   )
 }
+
+
+
+
+
 import NavBar from './components/navBar';
 
 import Search from './components/search/search';
