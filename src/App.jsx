@@ -120,60 +120,27 @@ function About() {
   )
 }
 
-function Post() {
+function Post({posts}) {
   const { id } = useParams();
 
+  const [ post ] = posts.filter(post => post.id == id);
+
   return (
-    <div>
-      <h2>post ID: {id}</h2>
+    <div className='post'>
+      <h2>{post.title}</h2>
+      <p>{post.text}</p>
+      <button>see more</button>
     </div>
   )
 }
 
 
-function Posts() {
-  const posts = [
-    {
-      id: 1,
-      icon: "",
-      content: "post1",
-      path: "/about/posts/1",
-      title: "best 10 movies in 2025",
-      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est quisquam nisi officia id amet, ullam ab commodi nihil imped"
-    },
-    {
-      id: 2,
-      icon: "",
-      content: "post2",
-      path: "/about/posts/2",
-      title: "ferrari's 10 best selling cars in 2024",
-      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est quisquam nisi officia id amet, ullam ab commodi nihil imped"
-    },
-    {
-      id: 3,
-      icon: "",
-      content: "post3",
-      path: "/about/posts/3",
-      title: "how to make up to 100k $ quickly",
-      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est quisquam nisi officia id amet, ullam ab commodi nihil imped"
-    },
-  ]
+function Posts({posts}) {
 
   return (
     <>
       <NavBar links={posts}/>
-      <div className="posts">
-        {
-          posts.map(post => (
-            <div key={post.content} className="post">
-              <h3>{post.title}</h3>
-              <p>{post.text}</p>
-              <Link to={`/about/posts/${post.id}`}>see more</Link>
-            </div>
-          ))
-        }
-      </div>
-      <div className="current-post">
+      <div className='posts'>
         <Outlet />
       </div>
     </>
@@ -207,6 +174,33 @@ function App() {
     }
   ]
 
+  const posts = [
+    {
+      id: 1,
+      icon: "",
+      content: "post1",
+      path: "/about/posts/1",
+      title: "best 10 movies in 2025",
+      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est quisquam nisi officia id amet, ullam ab commodi nihil imped"
+    },
+    {
+      id: 2,
+      icon: "",
+      content: "post2",
+      path: "/about/posts/2",
+      title: "ferrari's 10 best selling cars in 2024",
+      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est quisquam nisi officia id amet, ullam ab commodi nihil imped"
+    },
+    {
+      id: 3,
+      icon: "",
+      content: "post3",
+      path: "/about/posts/3",
+      title: "how to make up to 100k $ quickly",
+      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est quisquam nisi officia id amet, ullam ab commodi nihil imped"
+    },
+  ]
+
   return (
     <div className='wrapper'>
       <NavBar links={links}/>
@@ -217,11 +211,14 @@ function App() {
             </div>
           } />
           <Route path='/about' element={<About />} >
+            {/* default route */}
             <Route index element={<Navigate to="blogs" replace />}></Route>
+            {/* blogs route */}
             <Route path='/about/blogs' element={<h2>blogs</h2>}></Route>
-            <Route path='/about/posts' element={<Posts />}>
+            {/* posts route */}
+            <Route path='/about/posts' element={<Posts posts={posts} />} >
               <Route index element={<Navigate to="/about/posts/1" replace />}></Route>
-              <Route path='/about/posts/:id' element={<Post />}></Route>
+              <Route path='/about/posts/:id' element={<Post posts={posts} />}></Route>
             </Route>
           </Route>
           <Route path='/contact' element={<div><h1>contact page</h1></div>} />
