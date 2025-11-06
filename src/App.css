@@ -7,10 +7,8 @@
 
 
 .posts {
-  display: flex;
-  justify-content: center;
   .post {
-    margin: 0 1rem;
+    width: 60%;
     background-color: rgb(245, 245, 245);
     border: 1.5px solid #eee;
     border-radius: 6px;
