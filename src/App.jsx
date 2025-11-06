@@ -217,10 +217,10 @@ function App() {
             </div>
           } />
           <Route path='/about' element={<About />} >
-            {/* <Route index element={<Navigate to="blogs" replace />}></Route> */}
+            <Route index element={<Navigate to="blogs" replace />}></Route>
             <Route path='/about/blogs' element={<h2>blogs</h2>}></Route>
             <Route path='/about/posts' element={<Posts />}>
-              {/* <Route index element={<Navigate to="/about/posts/1" replace />}></Route> */}
+              <Route index element={<Navigate to="/about/posts/1" replace />}></Route>
               <Route path='/about/posts/:id' element={<Post />}></Route>
             </Route>
           </Route>
