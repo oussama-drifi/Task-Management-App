@@ -138,12 +138,12 @@ function Post({posts}) {
 function Posts({posts}) {
 
   return (
-    <>
+    <div className='posts-wrapper'>
       <NavBar links={posts}/>
       <div className='posts'>
         <Outlet />
       </div>
-    </>
+    </div>
   )
 }
 

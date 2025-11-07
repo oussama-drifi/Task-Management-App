@@ -13,5 +13,19 @@
     border: 1.5px solid #eee;
     border-radius: 6px;
     padding: 10px;
+    animation: fadrIn 0.3s ease-in-out forwards;
+  }
+}
+
+.about-wrapper, .posts-wrapper {
+  animation: fadrIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadrIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
