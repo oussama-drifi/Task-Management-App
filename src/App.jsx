@@ -51,10 +51,6 @@ function Contacts() {
     setContacts(myContacts);
     setContentLoaded(true);
   }, 1500);
-  
-  useEffect(() => {
-    axios.get
-  }, []);
 
   return (
     <>
@@ -88,10 +84,6 @@ function Contacts() {
     </>
   )
 }
-
-
-
-
 
 
 
@@ -203,6 +195,7 @@ function App() {
 
   return (
     <div className='wrapper'>
+      <Contacts />
       <NavBar links={links}/>
       <Routes>
           <Route path='/' element={
