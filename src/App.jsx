@@ -166,7 +166,7 @@ function App() {
     {
       id: 1,
       icon: "",
-      content: "post1",
+      content: "post 1",
       path: "/about/posts/1",
       title: "best 10 movies in 2025",
       text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est quisquam nisi officia id amet, ullam ab commodi nihil imped"
@@ -174,7 +174,7 @@ function App() {
     {
       id: 2,
       icon: "",
-      content: "post2",
+      content: "post 2",
       path: "/about/posts/2",
       title: "ferrari's 10 best selling cars in 2024",
       text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est quisquam nisi officia id amet, ullam ab commodi nihil imped"
@@ -182,7 +182,7 @@ function App() {
     {
       id: 3,
       icon: "",
-      content: "post3",
+      content: "post 3",
       path: "/about/posts/3",
       title: "how to make up to 100k $ quickly",
       text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est quisquam nisi officia id amet, ullam ab commodi nihil imped"
@@ -191,7 +191,6 @@ function App() {
 
   return (
     <div className='wrapper'>
-      <Contacts />
       <NavBar links={links}/>
       <Routes>
           <Route path='/' element={

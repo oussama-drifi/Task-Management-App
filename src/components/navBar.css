@@ -3,6 +3,7 @@ nav {
     margin-bottom: 15px;
     border: 1px solid #eee;
     background-color: rgb(245, 245, 245);
+    background-color: #f1eef3;
     padding: 3px;
     border-radius: 60px;
     width: fit-content;
@@ -22,16 +23,17 @@ nav {
                 }
             }
             .active {
-                background: rgba(255, 255, 255, 0.42);
-                backdrop-filter: blur(21px);
+                /* background: rgba(255, 255, 255, 0.42);
+                backdrop-filter: blur(21px); */
                 border: 1px solid rgba(255, 255, 255, 0.3);
-                position: relative;
+                /* position: relative; */
                 /* animation-name: active 0.3s ease-in-out; */
                 animation-name: active;
                 animation-timing-function: ease-in-out;
                 /* animation-delay: 0.1s; */
-                animation-duration: 0.3s;
+                animation-duration: 0.2s;
                 animation-fill-mode: forwards;
+                background-color: transparent;
             }
         }
     }
@@ -40,11 +42,13 @@ nav {
 
 @keyframes active {
     to {
-        background: rgba(255, 255, 255, 0.3);
+        background-color: #9901ff;
+        color: aliceblue;
+        /* background: rgba(255, 255, 255, 0.3);
         box-shadow: 
             0 8px 32px rgba(0, 0, 0, 0.1),
             inset 0 1px 0 rgba(255, 255, 255, 0.5),
             inset 0 -1px 0 rgba(255, 255, 255, 0.1),
-            inset 0 0 46px 23px rgba(255, 255, 255, 2.3);
+            inset 0 0 46px 23px rgba(255, 255, 255, 2.3); */
     }
 }
