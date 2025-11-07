@@ -73,10 +73,6 @@ function Contacts() {
             <>
               <ContactSkeleton />
               <ContactSkeleton />
-              <ContactSkeleton />
-              <ContactSkeleton />
-              <ContactSkeleton />
-              <ContactSkeleton />
             </>
           )
         }
