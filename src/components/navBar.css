@@ -25,7 +25,10 @@ nav {
             .active {
                 /* background: rgba(255, 255, 255, 0.42);
                 backdrop-filter: blur(21px); */
-                border: 1px solid rgba(255, 255, 255, 0.3);
+                /* border: 1px solid rgba(255, 255, 255, 0.3); */
+                background: linear-gradient(35deg, #9901ff, #c801ff);
+                background: linear-gradient(35deg, #0151ff, #01ffb7);
+                opacity: 0;
                 /* position: relative; */
                 /* animation-name: active 0.3s ease-in-out; */
                 animation-name: active;
@@ -42,7 +45,8 @@ nav {
 
 @keyframes active {
     to {
-        background-color: #9901ff;
+        /* background-color: #9901ff; */
+        opacity: 1;
         color: aliceblue;
         /* background: rgba(255, 255, 255, 0.3);
         box-shadow: 

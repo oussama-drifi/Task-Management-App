@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import 
-      { Routes, Route, Outlet, NavLink, Link, useParams, useNavigate, Navigate }
+      { Routes, Route, Outlet, useParams, useNavigate, Navigate, useSearchParams }
 from 'react-router-dom'
 import NavBar from './components/navBar';
 import './App.css'
@@ -135,7 +135,22 @@ function Posts({posts}) {
   )
 }
 
-
+function Search() {
+  const [ params, setSearchParams ] = useSearchParams();
+  const country = params.get("country");
+  const city = params.get("city");
+  const clickHandler = () => {
+    setSearchParams({country: "usa", city: "new york", street: 6});
+    console.log(params);
+  }
+  return (
+    <div>
+        <h1>country: {country}</h1>
+        <h1>city: {city}</h1>
+        <button onClick={clickHandler}>change params</button>
+    </div>
+  )
+}
 
 function App() {
 
@@ -159,6 +174,10 @@ function App() {
       content: "contact",
       path: "/contact",
       icon: "bi bi-envelope-at"
+    },
+    {
+      content: "search",
+      path: "/search?country=canada&city=toronto"
     }
   ]
 
@@ -211,6 +230,7 @@ function App() {
           </Route>
           <Route path='/contact' element={<div><h1>contact page</h1></div>} />
           <Route path='/services' element={<div><h1>services page</h1></div>} />
+          <Route path='/search' element={<Search />} />
       </Routes>
     </div>
   )

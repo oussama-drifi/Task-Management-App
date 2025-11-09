@@ -17,6 +17,7 @@
     "axios": "^1.13.0",
     "bootstrap-icons": "^1.13.1",
     "gh-pages": "^6.3.0",
+    "miragejs": "^0.1.48",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.4"
