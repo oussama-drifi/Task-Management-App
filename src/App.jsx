@@ -209,19 +209,30 @@ function App() {
   ]
 
 
-  // const [users, setUsers] = useState(null);
-
-  const fetchUsers = async () => {
-    const res = await fetch('/api/users');
-    const data = await res.json();
-
-    console.log(data)
-    
-  }
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetchUsers()
+    fetch('/api/users')
+    .then(res => res.json())
+    .then(data => setUsers(data));
   }, []);
+
+  
+  const [user, setUser] = useState({id: "", name: ""})
+  const handleChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name] : e.target.value
+    })
+  }
+  
+  const addUser = () => {
+    fetch('/api/users', {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: user.id, name: user.name })
+    })
+  }
 
   return (
     <div className='wrapper'>
@@ -250,8 +261,9 @@ function App() {
 
 
       <h1>hello world</h1>
-
-
+        id: <input value={user.id} name='id' onChange={handleChange} type="number" placeholder='enter id'/>
+        name: <input value={user.name} name='name' type="text" onChange={handleChange} placeholder='enter name'/>
+        <button onClick={addUser}>add user</button>
     </div>
   )
 }
