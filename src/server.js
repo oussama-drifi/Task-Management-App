@@ -9,6 +9,8 @@ export function makeServer() {
         seeds(server) {
             server.create("user", { id: 1, name: "Alice" });
             server.create("user", { id: 2, name: "Bob" });
+            server.create("user", { id: 3, name: "Nancy" });
+            server.create("user", { id: 4, name: "John" });
         },
 
         routes() {

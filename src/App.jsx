@@ -186,7 +186,7 @@ function App() {
       id: 1,
       icon: "",
       content: "post 1",
-      path: "/about/posts/1",
+      path: "1",
       title: "best 10 movies in 2025",
       text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est quisquam nisi officia id amet, ullam ab commodi nihil imped"
     },
@@ -194,7 +194,7 @@ function App() {
       id: 2,
       icon: "",
       content: "post 2",
-      path: "/about/posts/2",
+      path: "2",
       title: "ferrari's 10 best selling cars in 2024",
       text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est quisquam nisi officia id amet, ullam ab commodi nihil imped"
     },
@@ -202,36 +202,56 @@ function App() {
       id: 3,
       icon: "",
       content: "post 3",
-      path: "/about/posts/3",
+      path: "3",
       title: "how to make up to 100k $ quickly",
       text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est quisquam nisi officia id amet, ullam ab commodi nihil imped"
     },
   ]
 
+
+  // const [users, setUsers] = useState(null);
+
+  const fetchUsers = async () => {
+    const res = await fetch('/api/users');
+    const data = await res.json();
+
+    console.log(data)
+    
+  }
+
+  useEffect(() => {
+    fetchUsers()
+  }, []);
+
   return (
     <div className='wrapper'>
-      <NavBar links={links}/>
+      {/* <NavBar links={links}/>
       <Routes>
           <Route path='/' element={
             <div className="wrapper">
-              <h1>home</h1>
+              <h1>home page</h1>
             </div>
           } />
-          <Route path='/about' element={<About />} >
+          <Route path='/about' element={<About />} > */}
             {/* default route */}
-            <Route index element={<Navigate to="blogs" replace />}></Route>
+            {/* <Route index element={<Navigate to="blogs" replace />}></Route> */}
             {/* blogs route */}
-            <Route path='/about/blogs' element={<h2>blogs</h2>}></Route>
+            {/* <Route path='blogs' element={<h2>blogs</h2>}></Route> */}
             {/* posts route */}
-            <Route path='/about/posts' element={<Posts posts={posts} />} >
-              <Route index element={<Navigate to="/about/posts/1" replace />}></Route>
-              <Route path='/about/posts/:id' element={<Post posts={posts} />}></Route>
+            {/* <Route path='posts' element={<Posts posts={posts} />} >
+              <Route index element={<Navigate to="1" replace />}></Route>
+              <Route path=':id' element={<Post posts={posts} />}></Route>
             </Route>
           </Route>
           <Route path='/contact' element={<div><h1>contact page</h1></div>} />
           <Route path='/services' element={<div><h1>services page</h1></div>} />
-          <Route path='/search' element={<Search />} />
-      </Routes>
+          <Route path='/search/:id' element={<Search />} />
+      </Routes> */}
+
+
+      <h1>hello world</h1>
+
+
     </div>
   )
 }
