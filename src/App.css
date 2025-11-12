@@ -29,3 +29,13 @@
     opacity: 1;
   }
 }
+
+
+.user{
+  border: 1.5px solid #eee;
+  border-radius: 6px;
+  padding: 10px;
+  width: 200px;
+  margin: 10px auto;
+  list-style-type: none;
+}

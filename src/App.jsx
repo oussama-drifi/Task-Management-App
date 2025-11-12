@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import 
-      { Routes, Route, Outlet, useParams, useNavigate, Navigate, useSearchParams }
+      { Routes, Route, Outlet, useParams, useNavigate, Navigate, useSearchParams, Link }
 from 'react-router-dom'
 import NavBar from './components/navBar';
 import './App.css'
@@ -154,33 +154,6 @@ function Search() {
 
 function App() {
 
-  const links = [
-    {
-      content: "home",
-      path: "/",
-      icon: "bi bi-house"
-    },
-    {
-      content: "services",
-      path: "/services",
-      icon: "bi bi-easel2"
-    },
-    {
-      content: "about",
-      path: "/about",
-      icon: "bi bi-card-text"
-    },
-    {
-      content: "contact",
-      path: "/contact",
-      icon: "bi bi-envelope-at"
-    },
-    {
-      content: "search",
-      path: "/search?country=canada&city=toronto"
-    }
-  ]
-
   const posts = [
     {
       id: 1,
@@ -208,48 +181,17 @@ function App() {
     },
   ]
 
-
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetch('/api/users')
-    .then(res => res.json())
-    .then(data => setUsers(data));
-  }, []);
-
-  
-  const [user, setUser] = useState({id: "", name: ""})
-  const handleChange = (e) => {
-    setUser({
-      ...user,
-      [e.target.name] : e.target.value
-    })
-  }
-  
-  const addUser = () => {
-    fetch('/api/users', {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: user.id, name: user.name })
-    })
-  }
-
   return (
-    <div className='wrapper'>
-      {/* <NavBar links={links}/>
+      <>
       <Routes>
-          <Route path='/' element={
-            <div className="wrapper">
-              <h1>home page</h1>
-            </div>
-          } />
-          <Route path='/about' element={<About />} > */}
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route index path='/about' element={<About />} >
             {/* default route */}
-            {/* <Route index element={<Navigate to="blogs" replace />}></Route> */}
+            <Route index element={<Navigate to="blogs" replace />}></Route>
             {/* blogs route */}
-            {/* <Route path='blogs' element={<h2>blogs</h2>}></Route> */}
+            <Route path='blogs' element={<h2>blogs</h2>}></Route>
             {/* posts route */}
-            {/* <Route path='posts' element={<Posts posts={posts} />} >
+            <Route path='posts' element={<Posts posts={posts} />} >
               <Route index element={<Navigate to="1" replace />}></Route>
               <Route path=':id' element={<Post posts={posts} />}></Route>
             </Route>
@@ -257,15 +199,50 @@ function App() {
           <Route path='/contact' element={<div><h1>contact page</h1></div>} />
           <Route path='/services' element={<div><h1>services page</h1></div>} />
           <Route path='/search/:id' element={<Search />} />
-      </Routes> */}
-
-
-      <h1>hello world</h1>
-        id: <input value={user.id} name='id' onChange={handleChange} type="number" placeholder='enter id'/>
-        name: <input value={user.name} name='name' type="text" onChange={handleChange} placeholder='enter name'/>
-        <button onClick={addUser}>add user</button>
-    </div>
+      </Routes>
+      login to <Link to='/dashboard'>Dashboard</Link>
+      </>
   )
 }
 
 export default App
+
+
+function Dashboard() {
+
+  const links = [
+    {
+      content: "home",
+      path: "/",
+      icon: "bi bi-house"
+    },
+    {
+      content: "services",
+      path: "/services",
+      icon: "bi bi-easel2"
+    },
+    {
+      content: "about",
+      path: "/about",
+      icon: "bi bi-card-text"
+    },
+    {
+      content: "contact",
+      path: "/contact",
+      icon: "bi bi-envelope-at"
+    },
+    {
+      content: "search",
+      path: "/search?country=canada&city=toronto",
+      icon: "bi bi-search"
+    }
+  ]
+
+  return (
+    <div className='wrapper'>
+      <h1>Dashboard</h1>
+      <NavBar links={links}/>
+      <Outlet />
+    </div>
+  )
+}
