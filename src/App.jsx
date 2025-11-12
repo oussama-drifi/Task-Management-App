@@ -184,8 +184,13 @@ function App() {
   return (
       <>
       <Routes>
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route index path='/about' element={<About />} >
+          <Route path='/dashboard' element={<Dashboard />} >
+            <Route index element={<Navigate to="contact" replace />} />
+            <Route path='contact' element={<div><h1>contact section</h1></div>} />
+            <Route path='services' element={<div><h1>services section</h1></div>} />
+          </Route>
+
+          <Route path='/about' element={<About />} >
             {/* default route */}
             <Route index element={<Navigate to="blogs" replace />}></Route>
             {/* blogs route */}
@@ -196,8 +201,6 @@ function App() {
               <Route path=':id' element={<Post posts={posts} />}></Route>
             </Route>
           </Route>
-          <Route path='/contact' element={<div><h1>contact page</h1></div>} />
-          <Route path='/services' element={<div><h1>services page</h1></div>} />
           <Route path='/search/:id' element={<Search />} />
       </Routes>
       login to <Link to='/dashboard'>Dashboard</Link>
@@ -211,11 +214,11 @@ export default App
 function Dashboard() {
 
   const links = [
-    {
-      content: "home",
-      path: "/",
-      icon: "bi bi-house"
-    },
+    // {
+    //   content: "home",
+    //   path: "/",
+    //   icon: "bi bi-house"
+    // },
     {
       content: "services",
       path: "/services",
