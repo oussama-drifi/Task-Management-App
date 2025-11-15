@@ -142,7 +142,7 @@ function Search() {
   const [searchQuery, setSearchQuery] = useState(params.get("country") || "");
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
-    setSearchParams({"country": searchQuery})
+    setSearchParams({country: searchQuery}, {replace: true})
   }
 
   const countries = ["france", "china", "england", "thailand", "spain", "argentina", "italy", "islanda", "germany", "pland", "greece"]
@@ -152,7 +152,7 @@ function Search() {
       <input type="text" value={searchQuery} onChange={handleChange} placeholder='search for country'/>
       <div>
         {
-          countries.filter(c => c.includes(searchQuery)).map(c => (<div>c</div>))
+          countries.filter(c => c.includes(searchQuery)).map(c => (<div key={c}>{c}</div>))
         }
       </div>
     </div>
@@ -208,7 +208,7 @@ function App() {
                 <Route path=':id' element={<Post posts={posts} />}></Route>
               </Route>
             </Route>
-            <Route path='search?country=h' element={<Search />} />
+            <Route path='search' element={<Search />} />
           </Route>
 
       </Routes>
@@ -244,7 +244,7 @@ function Dashboard() {
     },
     {
       content: "search",
-      path: "/dashboard/search?country=h",
+      path: "/dashboard/search?country=",
       icon: "bi bi-search"
     }
   ]
