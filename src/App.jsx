@@ -88,11 +88,11 @@ function About() {
   const links = [
     {
       content: "blogs",
-      path: "/about/blogs",
+      path: "/dashboard/about/blogs",
       icon: "bi bi-layout-text-sidebar"
     }, {
       content: "posts",
-      path: "/about/posts",
+      path: "/dashboard/about/posts",
       icon: "bi bi-grid"
     }
   ]
@@ -101,7 +101,7 @@ function About() {
 
   return (
     <div className='about-wrapper'>
-      <h1>about page</h1>
+      <h1>about section</h1>
       <NavBar links={links}/>
       <Outlet />
     </div>
@@ -136,20 +136,7 @@ function Posts({posts}) {
 }
 
 function Search() {
-  const [ params, setSearchParams ] = useSearchParams();
-  const country = params.get("country");
-  const city = params.get("city");
-  const clickHandler = () => {
-    setSearchParams({country: "usa", city: "new york", street: 6});
-    console.log(params);
-  }
-  return (
-    <div>
-        <h1>country: {country}</h1>
-        <h1>city: {city}</h1>
-        <button onClick={clickHandler}>change params</button>
-    </div>
-  )
+  
 }
 
 function App() {
@@ -184,26 +171,29 @@ function App() {
   return (
       <>
       <Routes>
+        <Route path='/' element={<p>login to <Link to='/dashboard'>Dashboard</Link></p>} />
           <Route path='/dashboard' element={<Dashboard />} >
-            <Route index element={<Navigate to="contact" replace />} />
+            <Route index element={<Navigate to="overview" replace />} />
+            <Route path='overview' element={<div><h1>overview section</h1></div>} />
             <Route path='contact' element={<div><h1>contact section</h1></div>} />
             <Route path='services' element={<div><h1>services section</h1></div>} />
-          </Route>
-
-          <Route path='/about' element={<About />} >
-            {/* default route */}
-            <Route index element={<Navigate to="blogs" replace />}></Route>
-            {/* blogs route */}
-            <Route path='blogs' element={<h2>blogs</h2>}></Route>
-            {/* posts route */}
-            <Route path='posts' element={<Posts posts={posts} />} >
-              <Route index element={<Navigate to="1" replace />}></Route>
-              <Route path=':id' element={<Post posts={posts} />}></Route>
+            <Route path='about' element={<About />} >
+              {/* default route */}
+              <Route index element={<Navigate to="blogs" replace />}></Route>
+              {/* blogs route */}
+              <Route path='blogs' element={<h2>blogs</h2>}></Route>
+              {/* posts route */}
+              <Route path='posts' element={<Posts posts={posts} />} >
+                <Route index element={<Navigate to="1" replace />}></Route>
+                <Route path=':id' element={<Post posts={posts} />}></Route>
+              </Route>
+            </Route>
+            <Route path='search' element={<Search />} >
+              <Route path='search?country=?' element={<SearchResults />} />
             </Route>
           </Route>
-          <Route path='/search/:id' element={<Search />} />
+
       </Routes>
-      login to <Link to='/dashboard'>Dashboard</Link>
       </>
   )
 }
@@ -214,29 +204,29 @@ export default App
 function Dashboard() {
 
   const links = [
-    // {
-    //   content: "home",
-    //   path: "/",
-    //   icon: "bi bi-house"
-    // },
+    {
+      content: "overview",
+      path: "/dashboard/overview",
+      icon: "bi bi-columns-gap"
+    },
     {
       content: "services",
-      path: "/services",
+      path: "/dashboard/services",
       icon: "bi bi-easel2"
     },
     {
       content: "about",
-      path: "/about",
+      path: "/dashboard/about",
       icon: "bi bi-card-text"
     },
     {
       content: "contact",
-      path: "/contact",
+      path: "/dashboard/contact",
       icon: "bi bi-envelope-at"
     },
     {
       content: "search",
-      path: "/search?country=canada&city=toronto",
+      path: "/dashboard/search?country=canada&city=toronto",
       icon: "bi bi-search"
     }
   ]
@@ -248,4 +238,9 @@ function Dashboard() {
       <Outlet />
     </div>
   )
+}
+
+
+function SearchResults() {
+
 }
