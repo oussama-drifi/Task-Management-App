@@ -136,7 +136,27 @@ function Posts({posts}) {
 }
 
 function Search() {
-  
+
+  const [ params, setSearchParams ] = useSearchParams();
+
+  const [searchQuery, setSearchQuery] = useState(params.get("country") || "");
+  const handleChange = (e) => {
+    setSearchQuery(e.target.value);
+    setSearchParams({"country": searchQuery})
+  }
+
+  const countries = ["france", "china", "england", "thailand", "spain", "argentina", "italy", "islanda", "germany", "pland", "greece"]
+
+  return (
+    <div>
+      <input type="text" value={searchQuery} onChange={handleChange} placeholder='search for country'/>
+      <div>
+        {
+          countries.filter(c => c.includes(searchQuery)).map(c => (<div>c</div>))
+        }
+      </div>
+    </div>
+  )
 }
 
 function App() {
@@ -188,9 +208,7 @@ function App() {
                 <Route path=':id' element={<Post posts={posts} />}></Route>
               </Route>
             </Route>
-            <Route path='search' element={<Search />} >
-              <Route path='search?country=?' element={<SearchResults />} />
-            </Route>
+            <Route path='search?country=h' element={<Search />} />
           </Route>
 
       </Routes>
@@ -226,7 +244,7 @@ function Dashboard() {
     },
     {
       content: "search",
-      path: "/dashboard/search?country=canada&city=toronto",
+      path: "/dashboard/search?country=h",
       icon: "bi bi-search"
     }
   ]
@@ -238,9 +256,4 @@ function Dashboard() {
       <Outlet />
     </div>
   )
-}
-
-
-function SearchResults() {
-
 }
