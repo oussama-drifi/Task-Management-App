@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import 
       { Routes, Route, Outlet, useParams, useNavigate, Navigate, useSearchParams, Link }
 from 'react-router-dom'
+// import axios from 'axios'
 import NavBar from './components/navBar';
 import './App.css'
 import '@fontsource/poppins';
