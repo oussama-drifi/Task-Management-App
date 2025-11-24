@@ -8,7 +8,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import { BrowserRouter } from 'react-router-dom'
 
-makeServer();
+// makeServer();
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
