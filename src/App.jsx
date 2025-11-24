@@ -153,7 +153,7 @@ function Search() {
       <input type="text" value={searchQuery} onChange={handleChange} placeholder='search for country'/>
       <div>
         {
-          countries.filter(c => c.includes(searchQuery)).map(c => (<div key={c}>{c}</div>))
+          countries.filter(c => c.startsWith(searchQuery)).map(c => (<div key={c}>{c}</div>))
         }
       </div>
     </div>
@@ -184,7 +184,7 @@ function App() {
       icon: "",
       content: "post 3",
       path: "3",
-      title: "how to make up to 100k $ quickly",
+      title: "how to get rich quickly",
       text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est quisquam nisi officia id amet, ullam ab commodi nihil imped"
     },
   ]
@@ -211,7 +211,6 @@ function App() {
             </Route>
             <Route path='search' element={<Search />} />
           </Route>
-
       </Routes>
       </>
   )
