@@ -69,7 +69,11 @@ function Search() {
   const [searchQuery, setSearchQuery] = useState(params.get("country") || "");
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
-    setSearchParams({country: searchQuery}, {replace: true})
+    if (e.target.value.length) {
+      setSearchParams({country: e.target.value})
+    } else {
+      setSearchParams({})
+    }
   }
 
   const countries = ["france", "china", "england", "thailand", "spain", "argentina", "italy", "islanda", "germany", "pland", "greece"]
