@@ -3,52 +3,52 @@ import { createServer, Model } from "miragejs";
 export function makeServer() {
     let server = createServer({
         models: {
-            user: Model
+            post: Model
         },
     
 
         seeds(server) {
-            const storedUsers = JSON.parse(localStorage.getItem("users")) || [{ id: 1, name: "Alice" }, { id: 2, name: "Bob" }, { id: 3, name: "Nancy" }, { id: 4, name: "John" }];
-            storedUsers.forEach((user) => server.create("user", user));
+            const storedPosts = JSON.parse(localStorage.getItem("posts")) || [{ id: 1, title: "la boite à merveilles", author: "victor hugo" }, { id: 2, title: "hhhhh", author: "usgfyue"}, { id: 3, title: "heedededed", author: "zehgfyugef" }, { id: 4, title: "dtededed", author: "sdzfzefzef" }];
+            storedPosts.forEach((post) => server.create("post", post));
         },
 
         routes() {
             this.namespace = "api"; // your base URL
 
             // fetch all users
-            this.get("/users", (schema) => {
-                return schema.users.all();
-            }, { timing: 4000 });
+            this.get("/posts", (schema) => {
+                return schema.posts.all();
+            }, { timing: 3000 });
             // add new user
-            this.post("/users", (schema, req) => {
+            this.post("/posts", (schema, req) => {
                 const attrs = JSON.parse(req.requestBody);
-                const user = schema.users.create(attrs);
+                const post = schema.posts.create(attrs);
                 // Sync to localStorage
-                localStorage.setItem("users", JSON.stringify(schema.users.all().models));
-                return user;
+                localStorage.setItem("posts", JSON.stringify(schema.posts.all().models));
+                return post;
             });
             // fetch specific user
-            this.get("/users/:id", (schema, req) => {
+            this.get("/posts/:id", (schema, req) => {
                 const id = req.params.id;
-                return schema.users.find(id);
+                return schema.posts.find(id);
             })
             // update user records
-            this.put("/users/:id", (schema, req) => {
+            this.put("/posts/:id", (schema, req) => {
                 const id = req.params.id;
-                const user = schema.users.find(id);
+                const post = schema.posts.find(id);
                 const newAttrs = JSON.parse(req.requestBody);
-                const newUser = user.update(newAttrs);
-                localStorage.setItem("users", JSON.stringify(schema.users.all().models));
-                return newUser;
+                const newPost = post.update(newAttrs);
+                localStorage.setItem("posts", JSON.stringify(schema.posts.all().models));
+                return newPost;
             })
             // delete user record
-            this.delete("/users/:id", (schema, req) => {
+            this.delete("/posts/:id", (schema, req) => {
                 // get the deletable user's id
                 const id = req.params.id;
-                const deletedUser = schema.users.find(id).destroy();
+                const deletedPost = schema.posts.find(id).destroy();
                 // Sync to localStorage
-                localStorage.setItem("users", JSON.stringify(schema.users.all().models));
-                return deletedUser;
+                localStorage.setItem("posts", JSON.stringify(schema.posts.all().models));
+                return deletedPost;
             })
         },
     });
@@ -56,19 +56,6 @@ export function makeServer() {
     return server;
 }
 
-
-// get all users
-// /api/users (set(data.users))
-
-// get specific user
-// /api/users/(id here)
-
-// add new user
-// POST /api/users/ r{
-//   method: "POST",
-//   headers: { "Content-Type": "application/json" },
-//   body: JSON.stringify(data)
-// }
 
 // update user
 // PUT/PATCH /api/user/(id here) {

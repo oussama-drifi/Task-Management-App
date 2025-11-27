@@ -13,6 +13,7 @@ import '@fontsource/poppins';
 
 
 
+
 function About() {
 
   const links = [
@@ -37,7 +38,6 @@ function About() {
     </div>
   )
 }
-
 function Post({posts}) {
   const { id } = useParams();
 
@@ -51,8 +51,6 @@ function Post({posts}) {
     </div>
   )
 }
-
-
 function Posts({posts}) {
 
   return (
@@ -64,7 +62,6 @@ function Posts({posts}) {
     </div>
   )
 }
-
 function Search() {
 
   const [ params, setSearchParams ] = useSearchParams();
@@ -147,7 +144,6 @@ function App() {
 
 export default App
 
-
 function Dashboard() {
 
   const links = [
@@ -173,7 +169,7 @@ function Dashboard() {
     },
     {
       content: "search",
-      path: "/dashboard/search?country=",
+      path: "/dashboard/search",
       icon: "bi bi-search"
     }
   ]
