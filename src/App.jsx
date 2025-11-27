@@ -66,7 +66,7 @@ function Search() {
 
   const [ params, setSearchParams ] = useSearchParams();
 
-  const [searchQuery, setSearchQuery] = useState(params.get("country") || "");
+  const [searchQuery, setSearchQuery] = useState("");
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
     if (e.target.value.length) {
@@ -76,14 +76,19 @@ function Search() {
     }
   }
 
-  const countries = ["france", "china", "england", "thailand", "spain", "argentina", "italy", "islanda", "germany", "pland", "greece"]
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    axios.get("/api/posts").then(res => setPosts(res.data.posts));
+  }, [])
 
   return (
     <div>
+      search for Post
       <input type="text" value={searchQuery} onChange={handleChange} placeholder='search for country'/>
       <div>
         {
-          countries.filter(c => c.startsWith(searchQuery)).map(c => (<div key={c}>{c}</div>))
+          posts.length > 0 && (posts.filter(p => p.title.startsWith(searchQuery)).map(p => (<div key={p.id}>{p.title}, author: {p.author}</div>)))
         }
       </div>
     </div>

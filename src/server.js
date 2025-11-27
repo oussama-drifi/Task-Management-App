@@ -8,7 +8,7 @@ export function makeServer() {
     
 
         seeds(server) {
-            const storedPosts = JSON.parse(localStorage.getItem("posts")) || [{ id: 1, title: "la boite à merveilles", author: "victor hugo" }, { id: 2, title: "hhhhh", author: "usgfyue"}, { id: 3, title: "heedededed", author: "zehgfyugef" }, { id: 4, title: "dtededed", author: "sdzfzefzef" }];
+            const storedPosts = JSON.parse(localStorage.getItem("posts")) || [{ id: 1, title: "atomic habits", author: "james clear" }, { id: 2, title: "le denière jour d'un condamné", author: "victor hugo"}, { id: 3, title: "song of ice and fire", author: "Jeorge R.R martin" }, { id: 4, title: "fire and blood", author: "Jeorge R.R martin" }];
             storedPosts.forEach((post) => server.create("post", post));
         },
 
