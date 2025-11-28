@@ -79,6 +79,16 @@ function Posts({posts}) {
 }
 function Search() {
 
+  const fetchPosts = (param) => {
+    axios.get(param ? `/api/posts?title=${param}` : "/api/posts").then(res => {
+      if (!res.data.posts.length) {
+        setPosts([{id: 1, title: "ooops! no posts found", author: "__"}]);
+      } else {
+        setPosts(res.data.posts);
+      }
+    });
+  }
+
   let timeoutRef = useRef(null);
 
   const [ params, setSearchParams ] = useSearchParams();
@@ -95,26 +105,26 @@ function Search() {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = setTimeout(() => {
         setSearchParams(e.target.value.length ? {title: e.target.value} : {});
-        axios.get(`/api/posts?title=${e.target.value}`).then(res => {
-          if (!res.data.posts.length) {
-            setPosts([{id: 1, title: "ooops! no posts found", author: "__"}]);
-          } else {
-            setPosts(res.data.posts);
-          }
-        });
+        fetchPosts(e.target.value); // with search param
       }, 300);
     }
   }
 
+  const handleBlur = () => {
+    if (!searchQuery.length) {
+      setSearchParams({});
+      fetchPosts();
+    }
+  }
 
   // fetch all posts
   useEffect(() => {
-    axios.get("/api/posts").then(res => setPosts(res.data.posts));
+    fetchPosts()
   }, [])
 
   return (
     <div className='search-wrapper'>
-      <input id='search-bar' type="text" value={searchQuery} onChange={handleChange} placeholder='search for post'/>
+      <input onBlur={handleBlur} id='search-bar' type="text" value={searchQuery} onChange={handleChange} placeholder='search for post'/>
       <div className='posts-container' >
         {
           posts.length ? (
