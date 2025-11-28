@@ -81,10 +81,6 @@ function Search() {
 
   let timeoutRef = useRef(null);
 
-  // useEffect(() => {
-  //   timeoutRef.current = 
-  // })
-
   const [ params, setSearchParams ] = useSearchParams();
 
   const [posts, setPosts] = useState([]);
@@ -99,7 +95,13 @@ function Search() {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = setTimeout(() => {
         setSearchParams(e.target.value.length ? {title: e.target.value} : {});
-        axios.get(`/api/posts?title=${e.target.value}`).then(res => setPosts(res.data.posts));
+        axios.get(`/api/posts?title=${e.target.value}`).then(res => {
+          if (!res.data.posts.length) {
+            setPosts([{id: 1, title: "ooops! no posts found", author: "__"}]);
+          } else {
+            setPosts(res.data.posts);
+          }
+        });
       }, 300);
     }
   }
