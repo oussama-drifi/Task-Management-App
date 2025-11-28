@@ -10,7 +10,22 @@ import '@fontsource/poppins';
 // import '@fontsource/poppins/700.css';
 // import '@fontsource/poppins/700-italic.css';
 
-
+function PostSkeleton () {
+  return (
+    <div className="skeleton">
+        <div className="post-title"></div>
+        <div className="post-author"></div>
+    </div>
+  )
+}
+function PostItem({title, author}) {
+  return (
+    <div className="post-item">
+      <div>{title}</div>
+      <span>by {author}</span>
+    </div>
+  )
+}
 
 
 
@@ -64,31 +79,53 @@ function Posts({posts}) {
 }
 function Search() {
 
-  const [ params, setSearchParams ] = useSearchParams();
+  let timeoutRef = useRef(null);
 
-  const [searchQuery, setSearchQuery] = useState("");
-  const handleChange = (e) => {
-    setSearchQuery(e.target.value);
-    if (e.target.value.length) {
-      setSearchParams({country: e.target.value})
-    } else {
-      setSearchParams({})
-    }
-  }
+  // useEffect(() => {
+  //   timeoutRef.current = 
+  // })
+
+  const [ params, setSearchParams ] = useSearchParams();
 
   const [posts, setPosts] = useState([]);
 
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleChange = (e) => {
+    setSearchQuery(e.target.value);
+    
+    if (e.target.value) {
+      setPosts([])
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => {
+        setSearchParams(e.target.value.length ? {title: e.target.value} : {});
+        axios.get(`/api/posts?title=${e.target.value}`).then(res => setPosts(res.data.posts));
+      }, 300);
+    }
+  }
+
+
+  // fetch all posts
   useEffect(() => {
     axios.get("/api/posts").then(res => setPosts(res.data.posts));
   }, [])
 
   return (
-    <div>
-      search for Post
-      <input type="text" value={searchQuery} onChange={handleChange} placeholder='search for country'/>
-      <div>
+    <div className='search-wrapper'>
+      <input id='search-bar' type="text" value={searchQuery} onChange={handleChange} placeholder='search for post'/>
+      <div className='posts-container' >
         {
-          posts.length > 0 && (posts.filter(p => p.title.startsWith(searchQuery)).map(p => (<div key={p.id}>{p.title}, author: {p.author}</div>)))
+          posts.length ? (
+            posts.map(p => (<PostItem key={p.id} title={p.title} author={p.author}/>))
+          ) : (
+            <>
+              <PostSkeleton />
+              <PostSkeleton />
+              <PostSkeleton />
+              <PostSkeleton />
+              <PostSkeleton />
+            </>
+          )
         }
       </div>
     </div>

@@ -67,3 +67,112 @@ h1{
       }
   }
 }
+
+
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
+#search-bar{
+  width: 350px;
+  height: 35px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  outline: none;
+  &:focus {
+    border-color: #8800ff;
+  }
+}
+
+.skeleton {
+  width: 350px;
+  height: 50px;
+  border-radius: 7px;
+  /* background-color: #f3f0f4; */
+  background-color: #f1eef3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  padding: 10px;
+
+  .post-title, .post-author{
+      width: 80%;
+      height: 10px;
+      border-radius: 50px;
+      background-color: #d7d0dc;
+      position: relative;
+      overflow: hidden;
+      &::before {
+          content: "";
+          position: absolute;
+          width: 5%;
+          height: 100%;
+          background-color: rgb(110, 110, 110);
+          left: 0;
+          top: 0;
+          filter: blur(10px);
+          transform: skew(10%);
+          /* animation */
+          animation-name: loading;
+          animation-duration: 1s;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+      }
+  }
+  .post-title {
+      width: 80%;
+      height: 8px;
+  }
+  .post-author {
+      width: 40%;
+      height: 6px;
+  }
+}
+
+.post-item {
+  width: 350px;
+  height: 50px;
+  border-radius: 7px;
+  /* background-color: #f3f0f4; */
+  background-color: #f1eef3;
+  /* background-color: #9900ff; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  gap: 3px;
+
+  > div:first-child {
+      font-size: 14px;
+      font-weight: 600;
+      color: #4a4a4a;
+      text-align: start;
+      line-height: 0.96;
+  }
+  > span:last-child {
+      font-size: 10px;
+      color: #666;
+      text-align: start;
+  }
+}
+
+
+
+@keyframes loading {
+    100% {
+        left: 120%;
+    }
+}
