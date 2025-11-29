@@ -91,7 +91,7 @@ function Search() {
 
   let timeoutRef = useRef(null);
 
-  const [ params, setSearchParams ] = useSearchParams();
+  const [ , setSearchParams ] = useSearchParams();
 
   const [posts, setPosts] = useState([]);
 
