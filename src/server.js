@@ -49,10 +49,11 @@ export function makeServer() {
                 return post;
             });
             // fetch specific user
-            // this.get("/posts/:id", (schema, req) => {
-            //     const id = req.params.id;
-            //     return schema.posts.find(id);
-            // })
+            this.get("/posts/:id", (schema, req) => {
+                const id = req.params.id;
+                return schema.posts.find(id);
+            })
+            // fetch with query params
             this.get("/posts", (schema, req) => {
                 const searchQuery = req.queryParams.title;
                 let posts = schema.posts.all().models;

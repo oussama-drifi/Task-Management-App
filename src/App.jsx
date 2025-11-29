@@ -98,16 +98,16 @@ function Search() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleChange = (e) => {
-    setSearchQuery(e.target.value);
+    const val = e.target.value;
+
+    setSearchQuery(val);
+    setPosts([]);
     
-    if (e.target.value) {
-      setPosts([])
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = setTimeout(() => {
-        setSearchParams(e.target.value.length ? {title: e.target.value} : {});
-        fetchPosts(e.target.value); // with search param
-      }, 300);
-    }
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setSearchParams(val ? {title: val} : {});
+      fetchPosts(val);
+    }, 300);
   }
 
   const handleBlur = () => {
