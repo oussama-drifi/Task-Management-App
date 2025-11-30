@@ -257,8 +257,6 @@ function Layout () {
   // return (<p>login to <Link to='/dashboard'>Dashboard</Link></p>)
 }
 
-// global 
-
 
 import { CountProvider, useCount, useSetCount } from './CountContextProvider';
 
@@ -296,5 +294,3 @@ function TestComp() {
   const count = useCount();
   return (<span>the count is : {count}</span>)
 }
-
-
