@@ -176,7 +176,7 @@ function App() {
   return (
       <>
       <Routes>
-        <Route path='/' element={<Layout />} />
+        <Route path='/' element={<p>login to <Link to='/dashboard'>Dashboard</Link></p>} />
           <Route path='/dashboard' element={<Dashboard />} >
             <Route index element={<Navigate to="overview" replace />} />
             <Route path='overview' element={<div><h1>overview section</h1></div>} />
@@ -239,58 +239,4 @@ function Dashboard() {
       <Outlet />
     </div>
   )
-}
-
-
-
-
-function Layout () {
-
-
-  return (
-    <div className="card-container">
-      <Card />
-    </div>
-  )
-
-
-  // return (<p>login to <Link to='/dashboard'>Dashboard</Link></p>)
-}
-
-
-import { CountProvider, useCount, useSetCount } from './CountContextProvider';
-
-function Card () {
-  // the entire context is wrapped up inside CountProvider
-  return (
-    <CountProvider>
-      <CardHeader />
-      <CardBody />
-      <CardFooter />
-    </CountProvider>
-  )
-}
-
-function CardHeader() {
-  return (<h1>card header</h1>)
-}
-function CardBody() {
-
-  return (<p>card body <TestComp /></p>)
-}
-function CardFooter() {
-  return (
-    <div>
-      <span>card footer</span>
-      <InnerComp />
-    </div>
-  )
-}
-function InnerComp () {
-  const setCount = useSetCount();
-  return <button onClick={() => setCount(prev => prev + 1)}>increment</button>
-}
-function TestComp() {
-  const count = useCount();
-  return (<span>the count is : {count}</span>)
 }
