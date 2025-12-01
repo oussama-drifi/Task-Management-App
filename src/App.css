@@ -13,12 +13,17 @@
     border: 1.5px solid #eee;
     border-radius: 6px;
     padding: 10px;
+    max-height: 0px;
+    overflow: hidden;
     animation: fadrIn 0.3s ease-in-out forwards;
   }
 }
 
 .about-wrapper, .posts-wrapper {
-  animation: fadrIn 0.3s ease-in-out forwards;
+  max-height: 0px;
+  overflow: hidden;
+  transition: all 4s ease-in-out;
+  animation: fadrIn 0.3s ease-in-out forwards 0.05s;
 }
 
 @keyframes fadrIn {
@@ -27,6 +32,8 @@
   }
   to {
     opacity: 1;
+    max-height: 156px;
+    overflow: visible;
   }
 }
 
@@ -38,4 +45,10 @@
   width: 200px;
   margin: 10px auto;
   list-style-type: none;
+}
+
+button{
+  outline: none;
+  border: none;
+  background-color: transparent;
 }
