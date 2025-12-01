@@ -48,8 +48,8 @@ function About() {
   return (
     <div className='about-wrapper'>
       <h1>about section</h1>
-      <NavBar links={links}/>
-      <Outlet />
+      {/* <NavBar links={links}/> */}
+      {/* <Outlet /> */}
     </div>
   )
 }
@@ -184,14 +184,14 @@ function App() {
             <Route path='services' element={<div><h1>services section</h1></div>} />
             <Route path='about' element={<About />} >
               {/* default route */}
-              <Route index element={<Navigate to="blogs" replace />}></Route>
+              {/* <Route index element={<Navigate to="blogs" replace />}></Route> */}
               {/* blogs route */}
-              <Route path='blogs' element={<h2>blogs</h2>}></Route>
+              {/* <Route path='blogs' element={<h2>blogs</h2>}></Route> */}
               {/* posts route */}
-              <Route path='posts' element={<Posts posts={posts} />} >
+              {/* <Route path='posts' element={<Posts posts={posts} />} >
                 <Route index element={<Navigate to="1" replace />}></Route>
                 <Route path=':id' element={<Post posts={posts} />}></Route>
-              </Route>
+              </Route> */}
             </Route>
             <Route path='search' element={<Search />} />
           </Route>

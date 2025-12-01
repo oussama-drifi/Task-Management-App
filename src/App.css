@@ -20,10 +20,8 @@
 }
 
 .about-wrapper, .posts-wrapper {
-  max-height: 0px;
-  overflow: hidden;
   transition: all 4s ease-in-out;
-  animation: fadrIn 0.3s ease-in-out forwards 0.05s;
+  animation: fadrIn 0.3s ease-in-out forwards;
 }
 
 @keyframes fadrIn {
@@ -32,8 +30,6 @@
   }
   to {
     opacity: 1;
-    max-height: 156px;
-    overflow: visible;
   }
 }
 
