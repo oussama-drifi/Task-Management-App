@@ -10,9 +10,15 @@ import '@fontsource/poppins';
 // import '@fontsource/poppins/700-italic.css';
 
 import Header from './components/header'
+import Overview from './components/overview';
+import Task from './components/task';
 
 export default function App() {
   return (
+    <>
     <Header />
+    <Overview />
+    <Task />
+    </>
   )
 }

@@ -1,0 +1,90 @@
+.overview {
+    margin: 5px auto;
+    padding: 15px 10px;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: rgb(245, 242, 252); */
+    background: linear-gradient(35deg, rgb(252, 243, 252), rgb(246, 242, 255), rgb(247, 247, 249));
+    border: 1px solid rgba(220, 220, 220, 0.116);
+    border-radius: 10px;
+
+    .greet {
+        width: 30%;
+        color: #444;
+        span {
+            color: rgb(85, 0, 255);
+        }
+    }
+
+    .stats {
+        width: 67%;
+
+        display: flex;
+        justify-content: space-between;
+
+        div {
+            width: 19%;
+            padding: 6px;
+            background-color: rgb(220, 220, 255);
+            border-radius: 10px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            > span:first-child {
+                display: flex;
+                color: #666;
+                margin-bottom: 5px;
+                /* background-color: red; */
+                align-items: center;
+
+                .icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 8px;
+                    /* background-color: #aaa; */
+                    font-size: 30px;
+                }
+            }
+
+        }
+        .total-tasks {
+            background-color: rgb(237, 247, 255);
+            border: 1.5px solid rgb(0, 162, 255);
+            .icon {
+                color: rgb(0, 162, 255);
+            }
+        }
+        .todo {
+            background-color: rgb(255, 249, 239);
+            border: 1.5px solid rgb(255, 162, 0);
+            .icon {
+                color: rgb(255, 162, 0);
+            }
+        }
+        .in-progress {
+            background-color: rgb(243, 239, 255);
+            border: 1.5px solid rgb(64, 0, 255);
+            .icon {
+                color: rgb(64, 0, 255);
+            }
+        }
+        .canceled {
+            background-color: rgb(255, 237, 237);
+            border: 1.5px solid rgb(255, 0, 0);
+            .icon {
+                color: rgb(255, 0, 0);
+            }
+        }
+        .done {
+            background-color: rgb(237, 255, 237);
+            border: 1.5px solid rgb(0, 255, 0);
+            .icon {
+                color: rgb(0, 255, 0);
+            }
+        }
+    }
+}
