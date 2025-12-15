@@ -6,6 +6,8 @@ import axios from 'axios'
 import './App.css'
 import '@fontsource/poppins';
 // import '@fontsource/poppins/500.css';
+// import '@fontsource/poppins/700.css';
+// import '@fontsource/poppins/700-italic.css';
 
 import Header from './components/header'
 import Overview from './components/overview';
