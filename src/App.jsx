@@ -16,9 +16,9 @@ import Task from './components/task';
 export default function App() {
   return (
     <>
-    <Header />
-    <Overview />
-    <Task />
+      <Header />
+      <Overview />
+      <Task />
     </>
   )
 }
