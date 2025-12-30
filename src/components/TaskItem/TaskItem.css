@@ -1,0 +1,130 @@
+.task-item {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #667eea;
+}
+
+.task-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.task-item:hover::before {
+  background: linear-gradient(to bottom, #667eea, #764ba2);
+}
+
+.task-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.priority-badge {
+  padding: 19px 10px;
+  border-radius: 12px;
+  font-size: 13px !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  /* margin-bottom: 100px; */
+  text-transform: lowercase !important;
+}
+
+.task-category {
+  font-size: 0.8rem;
+  color: #666;
+  background: #f8f9fa;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.task-title {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.4;
+}
+
+.task-description {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+  color: #555;
+}
+
+.task-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.deadline {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.deadline-label {
+  color: #666;
+}
+
+.deadline-date {
+  font-weight: 600;
+  color: #333;
+}
+
+.subtasks-count {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #666;
+}
+
+.subtasks-icon {
+  font-size: 0.9rem;
+}
+
+/* Overdue task styling */
+.task-item.overdue {
+  border-left-color: #ff6b6b;
+}
+
+.task-item.overdue .deadline-date {
+  color: #ff6b6b;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .task-item {
+    padding: 12px;
+  }
+  
+  .task-title {
+    font-size: 0.95rem;
+  }
+  
+  .task-item-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,259 @@
+.task-detail-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.task-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.back-button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  background: #5a67d8;
+  transform: translateX(-2px);
+}
+
+.delete-button {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-button:hover {
+  background: #ff5252;
+  transform: translateY(-2px);
+}
+
+.task-detail-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  padding: 30px;
+}
+
+.task-main-info {
+  margin-bottom: 40px;
+}
+
+.task-title-section h1 {
+  margin: 0 0 20px 0;
+  font-size: 2.2rem;
+  color: #333;
+  line-height: 1.3;
+}
+
+.task-meta {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.priority-badge,
+.status-badge,
+.category-badge {
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.category-badge {
+  background: #6c757d;
+  color: white;
+}
+
+.task-description {
+  margin-bottom: 30px;
+}
+
+.task-description h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+  color: #555;
+}
+
+.task-description p {
+  margin: 0;
+  line-height: 1.6;
+  color: #666;
+  font-size: 1.1rem;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.task-dates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+}
+
+.date-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.date-value {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.deadline-value {
+  color: #ff6b6b;
+}
+
+.subtasks-section {
+  border-top: 2px solid #e9ecef;
+  padding-top: 30px;
+}
+
+.subtasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.subtasks-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.subtasks-count {
+  background: #667eea;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.subtasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.no-subtasks {
+  text-align: center;
+  padding: 40px;
+  color: #adb5bd;
+  font-style: italic;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 2px dashed #dee2e6;
+}
+
+.task-detail-loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e9ecef;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.task-not-found {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.task-not-found h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.task-not-found p {
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.task-not-found button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .task-detail-page {
+    padding: 10px;
+  }
+  
+  .task-detail-card {
+    padding: 20px;
+  }
+  
+  .task-title-section h1 {
+    font-size: 1.8rem;
+  }
+  
+  .task-detail-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .task-dates {
+    grid-template-columns: 1fr;
+  }
+}
