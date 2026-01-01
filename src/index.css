@@ -2,35 +2,32 @@ body {
     background-color: rgb(251, 249, 255) !important;
 }
 
-/* 1. Set the width for all vertical scrollbars */
 ::-webkit-scrollbar {
   width: 2.5px;
 }
 
-/* 2. Set the height for all horizontal scrollbars */
+
 ::-webkit-scrollbar-horizontal {
   height: 2.5px;
 }
 
-/* 3. Remove the up and down arrows (buttons) */
+
 ::-webkit-scrollbar-button {
   display: none;
   width: 0;
   height: 0;
 }
 
-/* 4. Style the draggable part (Thumb) */
+
 ::-webkit-scrollbar-thumb {
-  background: #888; /* Change this to your preferred color */
+  background: #888;
   border-radius: 5px;
 }
 
-/* 5. Style the background (Track) */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Change this to your background color */
+  background: #f1f1f1;
 }
 
-/* Hover effect for the thumb */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
