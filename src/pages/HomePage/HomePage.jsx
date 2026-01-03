@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setTasks } from '../../store/slices/taskSlice';
 import TaskList from '../../components/TaskList/TaskList';
 import ChatWindow from '../../components/ChatWindow/ChatWindow';
