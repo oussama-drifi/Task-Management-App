@@ -84,7 +84,7 @@ const ChatWindow = () => {
                 className="chat-toggle-btn"
                 onClick={() => dispatch(toggleChatWindow())}
             >
-                💬 Chat with AI
+                Chat with AI
             </button>
         );
     }
