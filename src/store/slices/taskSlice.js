@@ -50,36 +50,36 @@ const taskSlice = createSlice({
     initialState,
     reducers: {
         setTasks: (state, action) => {
-        state.tasks = action.payload;
+            state.tasks = action.payload;
         },
         updateTaskStatus: (state, action) => {
-        const { taskId, newStatus } = action.payload;
-        const task = state.tasks.find(t => t.task_id === taskId);
-        if (task) {
-            task.status = newStatus;
-            task.updated_date = new Date().toISOString();
-        }
+            const { taskId, newStatus } = action.payload;
+            const task = state.tasks.find(t => t.task_id === taskId);
+            if (task) {
+                task.status = newStatus;
+                task.updated_date = new Date().toISOString();
+            }
         },
         addTask: (state, action) => {
-        state.tasks.push(action.payload);
+            state.tasks.push(action.payload);
         },
         updateTask: (state, action) => {
-        const { taskId, updatedData } = action.payload;
-        const index = state.tasks.findIndex(t => t.task_id === taskId);
-        if (index !== -1) {
-            state.tasks[index] = {
-            ...state.tasks[index],
-            ...updatedData,
-            updated_date: new Date().toISOString(),
-            };
-        }
+            const { taskId, updatedData } = action.payload;
+            const index = state.tasks.findIndex(t => t.task_id === taskId);
+            if (index !== -1) {
+                state.tasks[index] = {
+                ...state.tasks[index],
+                ...updatedData,
+                updated_date: new Date().toISOString(),
+                };
+            }
         },
         deleteTask: (state, action) => {
-        const taskId = action.payload;
-        const index = state.tasks.findIndex(t => t.task_id === taskId);
-        if (index !== -1) {
-            state.tasks[index].deleted_at = new Date().toISOString();
-        }
+            const taskId = action.payload;
+            const index = state.tasks.findIndex(t => t.task_id === taskId);
+            if (index !== -1) {
+                state.tasks[index].deleted_at = new Date().toISOString();
+            }
         },
         // For AI agent to modify tasks
         aiUpdateTasks: (state, action) => {
@@ -87,15 +87,15 @@ const taskSlice = createSlice({
         },
         // Sub-task reducers
         updateSubTaskStatus: (state, action) => {
-        const { taskId, subTaskId, isDone } = action.payload;
-        const task = state.tasks.find(t => t.task_id === taskId);
-        if (task && task.subTasks) {
-            const subTask = task.subTasks.find(st => st.sub_task_id === subTaskId);
-            if (subTask) {
-            subTask.is_done = isDone;
-            subTask.updated_date = new Date().toISOString();
+            const { taskId, subTaskId, isDone } = action.payload;
+            const task = state.tasks.find(t => t.task_id === taskId);
+            if (task && task.subTasks) {
+                const subTask = task.subTasks.find(st => st.sub_task_id === subTaskId);
+                if (subTask) {
+                subTask.is_done = isDone;
+                subTask.updated_date = new Date().toISOString();
+                }
             }
-        }
         },
     },
 });

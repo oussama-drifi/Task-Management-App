@@ -4,8 +4,7 @@ export const selectActiveTasks = (state) => state.tasks.tasks.filter(task => !ta
 
 export const selectTaskById = (state, taskId) => state.tasks.tasks.find(task => task.task_id === taskId);
 
-export const selectTasksByStatus = (state, status) => 
-    state.tasks.tasks.filter(task => task.status === status && !task.deleted_at);
+export const selectTasksByStatus = (state, status) => state.tasks.tasks.filter(task => task.status === status && !task.deleted_at);
 
 export const selectTaskSummary = (state) => {
     const tasks = state.tasks.tasks.filter(task => !task.deleted_at);
