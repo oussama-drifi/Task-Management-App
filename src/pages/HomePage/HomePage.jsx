@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setTasks } from '../../store/slices/taskSlice';
+import { showNotification } from '../../store/slices/uiSlice';
 import TaskList from '../../components/TaskList/TaskList';
 import TaskSummary from '../../components/TaskSummary/TaskSummary';
 import ChatWindow from '../../components/ChatWindow/ChatWindow';
@@ -15,10 +16,15 @@ const HomePage = () => {
         const fetchTasks = async () => {
             try {
                 const response = await fetch(`${BASE_URL}/api/tasks`);
+                if (!response.ok) throw new Error(`Server error: ${response.status}`);
                 const data = await response.json();
                 dispatch(setTasks(data.tasks));
             } catch (error) {
                 console.error('Error fetching tasks:', error);
+                dispatch(showNotification({
+                    message: 'Could not load tasks. Is the backend running?',
+                    type: 'error',
+                }));
             }
         };
 
