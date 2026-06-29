@@ -49,7 +49,7 @@ const ChatWindow = () => {
             ]);
 
             try {
-                const response = await fetch('http://127.0.0.1:5000/api/tasks');
+                const response = await fetch(`${BASE_URL}/api/tasks`);
                 const tasks = await response.json();
                 // Update global state with AI-modified tasks
                 dispatch(aiUpdateTasks(tasks.tasks));
