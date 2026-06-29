@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateSubTaskStatus } from '../../store/slices/taskSlice';
+import { showNotification } from '../../store/slices/uiSlice';
 import './SubTask.css';
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -64,6 +65,10 @@ const SubTask = ({ subTask, taskId, onToggle }) => {
 
         } catch (error) {
             console.error('Error updating subtask:', error);
+            dispatch(showNotification({
+                message: 'Failed to update subtask. Please try again.',
+                type: 'error',
+            }));
         } finally {
             setIsUpdating(false);
         }
