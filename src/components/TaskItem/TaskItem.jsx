@@ -49,7 +49,13 @@ const TaskItem = ({ task }) => {
         </div>
         
         <h4 className="task-title"><i className="bi bi-dash"></i> {task.title}</h4>
-        <p className='task-description'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, ex dolor omnis</p>
+        <p className='task-description'>
+            {task.description
+                ? task.description.length > 80
+                    ? task.description.slice(0, 80) + '…'
+                    : task.description
+                : 'No description provided.'}
+        </p>
         
         <div className="task-item-footer">
             <div className="deadline">
